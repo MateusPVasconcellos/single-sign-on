@@ -5,10 +5,7 @@ services:
     build:
       target: production
       dockerfile: Dockerfile
-    command: node dist/app.js
-    environment:
-        - DATABASE_HOST=gc-database
-        - DATABASE_PORT=5432
+    command: yarn start
     ports:
       - "3000:3000"      
 volumes:

@@ -22,7 +22,7 @@ EXPOSE 3000
 
 FROM service as production
 
-ENV NODE_PATH=./gc
+ENV NODE_PATH=./dist
 
 RUN yarn build
 

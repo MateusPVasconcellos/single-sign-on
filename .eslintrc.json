@@ -1,10 +1,31 @@
 {
-    "extends": "standard-with-typescript",
-    "parserOptions": {
-        "project": "./tsconfig.json"
-    },
-    "rules": {
-        "@typescript-eslint/estrict-boolean-expressions": "off",
-        "@typescript-eslint/consistent-type-definitions": "off"
-    }
+  "root": true,
+  "parser": "@typescript-eslint/parser", // Especifica o analisador ESLint
+  "parserOptions": {
+    "ecmaVersion": 2020, // Permite a análise de recursos modernos do ECMAScript
+    "sourceType": "module" // Permite o uso de imports
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended", // Usa as regras recomendadas do @typescript-eslint/eslint-plugin
+    "plugin:@typescript-eslint/recommended" // Usa as regras recomendadas do @typescript-eslint/eslint-plugin
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "rules": {
+    "quotes": ["error", "single"],
+    "indent": ["error", 4],
+    "comma-dangle": "off",
+    "eol-last": "off",
+    "space-before-function-paren": "off",
+    "max-len": "off",
+    "strict": "off"
+  }
 }
