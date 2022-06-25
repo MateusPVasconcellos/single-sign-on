@@ -13,7 +13,8 @@
     "lint-fix": "eslint . --ext .ts --fix",
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
     "migration:up": "yarn typeorm migration:run -d ./data-source.ts",
-    "migration:down": "yarn typeorm migration:revert -d ./data-source.ts"
+    "migration:down": "yarn typeorm migration:revert -d ./data-source.ts",
+    "migration:create": "yarn typeorm migration:create ./src/infra/migrations/"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
