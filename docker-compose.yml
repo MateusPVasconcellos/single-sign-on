@@ -1,17 +1,17 @@
-version: "3.7"
+version: '3.7'
 
 services:
   postgres-database:
     image: postgres:11
     user: postgres
     ports:
-        - 5433:5432
+      - 5433:5432
     environment:
-        POSTGRES_PASSWORD: postgres
-        POSTGRES_USER: postgres
-        POSTGRES_DB: gc-database
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: gc-database
     volumes:
-        - gc-data:/var/lib/postgresql/data
+      - gc-data:/var/lib/postgresql/data
   app:
     build:
       context: .
@@ -19,11 +19,11 @@ services:
       target: service
     command: yarn dev
     environment:
-        POSTGRES_PASSWORD: postgres
-        POSTGRES_USER: postgres
-        POSTGRES_HOST: postgres-database
-        POSTGRES_PORT: 5432
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_HOST: postgres-database
+      POSTGRES_PORT: 5432
     ports:
-      - "3000:3000"      
+      - '3000:3000'
 volumes:
-    gc-data:
+  gc-data:

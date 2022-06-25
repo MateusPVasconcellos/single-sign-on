@@ -20,10 +20,4 @@ COPY --from=dependencies /app/node_modules ./node_modules
 
 EXPOSE 3000
 
-FROM service as production
-
-ENV NODE_PATH=./dist
-
-RUN yarn build
-
 USER node

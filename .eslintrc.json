@@ -9,23 +9,18 @@
     "es6": true,
     "node": true
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended", // Usa as regras recomendadas do @typescript-eslint/eslint-plugin
-    "plugin:@typescript-eslint/recommended" // Usa as regras recomendadas do @typescript-eslint/eslint-plugin
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
   "rules": {
-    "quotes": ["error", "single"],
-    "indent": ["error", 4],
-    "comma-dangle": "off",
-    "eol-last": "off",
-    "space-before-function-paren": "off",
-    "max-len": "off",
-    "strict": "off"
+    "prettier/prettier": "error"
   }
 }
