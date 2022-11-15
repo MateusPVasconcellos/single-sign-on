@@ -7,6 +7,7 @@ declare global {
       DATABASE_PORT: number;
       DATABASE_NAME: string;
       DATABASE_DIALECT: string;
+      AUTH_SALT_ROUNDS: number;
     }
   }
 }

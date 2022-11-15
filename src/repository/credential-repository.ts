@@ -1,16 +1,8 @@
-import Credential from 'src/model/credential';
-import { CredentialType } from '../enum/credential-type';
+import Credential from '../infra/entities/Credential';
+import { AppDataSource } from '../../data-source';
 
-class CredentialRepository {
-  async create(credential: object) {
-    return await Credential.query().insert(credential);
-  }
-
-  async updatePassword(accountId: string, newPassword: string) {
-    return await Credential.query()
-      .patch({ password: newPassword })
-      .where({ account_id: accountId, credential_type: CredentialType.BASIC });
-  }
-}
-
-export const accountRepository = new CredentialRepository();
+export const CredentialRepository = AppDataSource.getRepository(
+  Credential,
+).extend({
+  // here you can implement your own methods
+});

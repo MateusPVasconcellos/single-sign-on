@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('tenant')
+@Entity('Tenant')
 class Tenant {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -36,4 +36,4 @@ class Tenant {
   updatedAt: Date;
 }
 
-export const TenantEntity = new Tenant();
+export default Tenant;

@@ -1,23 +1,14 @@
-import Account from 'src/model/account.js';
+import Account from '../infra/entities/Account';
+import { AppDataSource } from '../../data-source';
 
-class AccountRepository {
-  async create(account: object) {
-    return await Account.query().insert(account);
-  }
-
-  async findByEmail(email: string) {
-    return await Account.query().findOne('email', email);
-  }
-
-  async findByEmailWithCredentials(email: string) {
-    return await Account.query()
-      .findOne('email', email)
-      .withGraphFetched('credential');
-  }
-
-  async activate(id: string) {
-    return await Account.query().patch({ active: true }).where('id', id);
-  }
-}
-
-export const accountRepository = new AccountRepository();
+export const AccountRepository = AppDataSource.getRepository(Account).extend({
+  //here you can implement your own methods
+  findByEmail(email: string): Promise<Account[]> {
+    const accountByEmail = this.find({
+      where: {
+        email: email,
+      },
+    });
+    return accountByEmail;
+  },
+});

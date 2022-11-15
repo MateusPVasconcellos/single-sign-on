@@ -1,12 +1,12 @@
 import 'reflect-metadata';
 import 'dotenv/config';
-import routes from './src/route/index';
 import express from 'express';
 import bodyParser from 'body-parser';
 import 'express-async-errors';
 import cors from 'cors';
 import { errorHandler } from './src/middleware/error-handler';
 import { AppDataSource } from './data-source';
+import routes from './src/routes/routes';
 
 AppDataSource.initialize()
   .then(() => {
@@ -29,7 +29,7 @@ console.log('Loading error handlers...');
 routes.use(errorHandler);
 
 // Load routes, interceptors and handlers
-app.use(routes);
+app.use('/', routes);
 
 app.listen(PORT, () => {
   console.log(`Server is now running on port ${PORT}`);
